@@ -1,6 +1,6 @@
 #ifndef MY_MATRIX
 #define MY_MATRIX
-#include "vector3.h"
+#include "Vector3.h"
 
 namespace gpp
 {

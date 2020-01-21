@@ -30,5 +30,6 @@ private:
 
 	float rotationAngle = 0.0f;
 	gpp::MyMatrix3 matrix;
+	gpp::MyVector3 vector;
 	
 };

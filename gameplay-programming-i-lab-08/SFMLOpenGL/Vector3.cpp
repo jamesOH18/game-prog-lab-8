@@ -1,6 +1,6 @@
 /// James o hara
 /// </summary>
-#include "vector3.h"
+#include "Vector3.h"
 #include <string.h>
 #define PI           3.14159265358979323846
 

@@ -72,7 +72,7 @@ void Game::initialize()
 {
 	isRunning = true;
 
-	//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(45.0, window.getSize().x / window.getSize().y, 1.0, 500.0);
@@ -85,61 +85,102 @@ void Game::update()
 {
 	elapsed = clock.getElapsedTime();
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+	if (elapsed.asSeconds() >= 1.0f / 60.0f)
 	{
-		for (int i = 0; i < 24; i += 3)
+		clock.restart();
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 		{
-			
-			gpp::MyVector3 vector = matrix.rotationZ(0.01) * vertices[i + 2];
-			vertices[i] = vector.
+			for (int i = 0; i < 24; i += 3)
+			{
+				
+				vector.x = vertices[i];
+				vector.y = vertices[i + 1];
+				vector.z = vertices[i + 2];
+				vector = matrix.rotationZ(0.01) * vector;
+				vertices[i + 2] = vector.z;
+				vertices[i] = vector.x;
+				vertices[i + 1] = vector.y;
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+		{
+			for (int i = 0; i < 24; i += 3)
+			{
+				
+				vector.x = vertices[i];
+				vector.y = vertices[i + 1];
+				vector.z = vertices[i + 2];
+				vector = matrix.rotationY(0.01) * vector;
+				vertices[i + 1] = vector.y;
+				vertices[i + 2] = vector.z;
+				vertices[i] = vector.x;
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+		{
+			for (int i = 0; i < 24; i += 3)
+			{
+				vector.x = vertices[i];
+				vector.y = vertices[i + 1];
+				vector.z = vertices[i + 2];
+				vector = matrix.rotationX(0.01) * vector;
+				vertices[i] = vector.x;
+				vertices[i + 2] = vector.z;
+				vertices[i + 1] = vector.y;
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+		{
+			for (int i = 0; i < 24; i += 3)
+			{
+				float z = vertices[i+2];
+				vertices[i+2] = 1;
+				vector.x = vertices[i];
+				vector.y = vertices[i + 1];
+				vector.z = vertices[i + 2];
+				vector = matrix.translation({ 0.01, 0.01, 0.0 }) * vector;
+				vertices[i] = vector.x;
+				vertices[i + 1] = vector.y;
+				vertices[i+2] = z;
+				
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			for (int i = 0; i < 24; i += 3)
+			{
+				gpp::MyVector3 vector;
+				vector.x = vertices[i];
+				vector.y = vertices[i + 1];
+				vector.z = vertices[i + 2];
+				vector = matrix.scale(1.01) * vector;
+				vertices[i] = vector.x;
+				vertices[i + 1] = vector.y;
+				vertices[i + 2] = vector.z;
+			}
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			for (int i = 0; i < 24; i += 3)
+			{
+				gpp::MyVector3 vector;
+				vector.x = vertices[i];
+				vector.y = vertices[i + 1];
+				vector.z = vertices[i + 2];
+				vector = matrix.scale(0.99) * vector;
+				vertices[i] = vector.x;
+				vertices[i + 1] = vector.y;
+				vertices[i + 2] = vector.z;
+			}
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
-	{
-		for (int i = 0; i < 24; i+=3)
-		{
-			vertices[i+1] = matrix.rotationY(0.01) * vertices[i+1];
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
-	{
-		for (int i = 0; i < 24; i+=3)
-		{
-			vertices[i] = matrix.rotationX(0.01) * vertices[i];
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
-	{
-		for (int i = 0; i < 24; i+=3)
-		{
-			float z = vertices[i].z;
-			vertices[i].z = 1;
-			vertices[i] = matrix.translation({ 0.01, 0.01, 0.0 }) * vertices[i];
-			vertices[i].z = z;
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		for (int i = 0; i < 24; i++)
-		{
-			vertices[i] = matrix.scale(1.01) * vertices[i];
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		for (int i = 0; i < 24; i++)
-		{
-			vertices[i] = matrix.scale(0.99) * vertices[i];
-		}
-	}
-
 	cout << "Update up" << endl;
 }
 
 void Game::render()
 {
 	cout << "Drawing" << endl;
-
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
 

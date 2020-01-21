@@ -1,15 +1,31 @@
 ﻿  Game.cpp
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(92,58): error C2440:  '=': cannot convert from 'gpp::MyMatrix3' to 'float'
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(92,43): message :  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(99,58): error C2440:  '=': cannot convert from 'gpp::MyMatrix3' to 'float'
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(99,43): message :  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(106,54): error C2440:  '=': cannot convert from 'gpp::MyMatrix3' to 'float'
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(106,41): message :  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(115,71): error C2440:  '=': cannot convert from 'gpp::MyMatrix3' to 'float'
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(115,58): message :  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(123,50): error C2440:  '=': cannot convert from 'gpp::MyMatrix3' to 'float'
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(123,37): message :  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(130,50): error C2440:  '=': cannot convert from 'gpp::MyMatrix3' to 'float'
-  Main.cpp
-  Generating Code...
-C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(130,37): message :  No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(100,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(101,25): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(102,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(114,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(115,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(116,25): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(127,25): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(128,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(129,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(142,25): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(143,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(157,25): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(158,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(159,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(171,25): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(172,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\SFMLOpenGL\Game.cpp(173,29): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+  SFMLOpenGL.vcxproj -> C:\Users\c00236511\Desktop\game-prog-lab-8\gameplay-programming-i-lab-08\Debug\SFMLOpenGL.exe
+  C:\SFML-2.5.1\bin\openal32.dll
+  C:\SFML-2.5.1\bin\sfml-audio-2.dll
+  C:\SFML-2.5.1\bin\sfml-audio-d-2.dll
+  C:\SFML-2.5.1\bin\sfml-graphics-2.dll
+  C:\SFML-2.5.1\bin\sfml-graphics-d-2.dll
+  C:\SFML-2.5.1\bin\sfml-network-2.dll
+  C:\SFML-2.5.1\bin\sfml-network-d-2.dll
+  C:\SFML-2.5.1\bin\sfml-system-2.dll
+  C:\SFML-2.5.1\bin\sfml-system-d-2.dll
+  C:\SFML-2.5.1\bin\sfml-window-2.dll
+  C:\SFML-2.5.1\bin\sfml-window-d-2.dll
+  11 File(s) copied
