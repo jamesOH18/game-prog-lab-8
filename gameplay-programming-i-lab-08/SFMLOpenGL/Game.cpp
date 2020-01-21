@@ -12,24 +12,37 @@ Game::~Game() {}
 
 
 // Vertices for one Triangle
-float vertices[] = { -1.0f,-1.0f,1.0f, 
- 1.0f,-1.0f,1.0f, 
-- 1.0f,1.0f,1.0f, 
--1.0f,1.0f,1.0f, 
--1.0f,-1.0f,-1.0f, 
+float vertices[] = { -1.0f,-1.0f,1.0f ,
+1.0f,-1.0f,1.0f,
+1.0f,1.0f,1.0f,
+-1.0f,1.0f,1.0f,
+-1.0f,-1.0f,-1.0f,
 1.0f,-1.0f,-1.0f,
 1.0f,1.0f,-1.0f,
--1.0f,1.0f,-1.0f};
+-1.0f,1.0f,-1.0f };
+
 
 
 
 // Colors for those vertices
 float colors[] = { 1.0f, 0.0f, 0.0f, 
 0.0f, 1.0f, 0.0f, 
-0.0f, 0.0f, 1.0f};
+0.0f, 0.0f, 1.0f };
 
 // Index to be drawn
-unsigned int vertex_index[] = { 0,1,2,3,4,5,6,7};
+unsigned int vertex_index[] = { 0,1,2,
+2,3,0,
+5,1,0,
+0,4,5,
+1,5,6,
+6,2,1,
+3,2,6,
+6,7,3,
+4,0,3,
+3,7,4,
+6,5,4,
+4,7,6
+};
 
 void Game::run()
 {
@@ -59,17 +72,66 @@ void Game::initialize()
 {
 	isRunning = true;
 
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(45.0, window.getSize().x / window.getSize().y, 1.0, 500.0);
 	glMatrixMode(GL_MODELVIEW);
 	glTranslatef(0, 0, -8);
+	glEnable(GL_CULL_FACE);
 }
 
 void Game::update()
 {
 	elapsed = clock.getElapsedTime();
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+	{
+		for (int i = 0; i < 24; i += 3)
+		{
+			
+			gpp::MyVector3 vector = matrix.rotationZ(0.01) * vertices[i + 2];
+			vertices[i] = vector.
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		for (int i = 0; i < 24; i+=3)
+		{
+			vertices[i+1] = matrix.rotationY(0.01) * vertices[i+1];
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	{
+		for (int i = 0; i < 24; i+=3)
+		{
+			vertices[i] = matrix.rotationX(0.01) * vertices[i];
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
+	{
+		for (int i = 0; i < 24; i+=3)
+		{
+			float z = vertices[i].z;
+			vertices[i].z = 1;
+			vertices[i] = matrix.translation({ 0.01, 0.01, 0.0 }) * vertices[i];
+			vertices[i].z = z;
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		for (int i = 0; i < 24; i++)
+		{
+			vertices[i] = matrix.scale(1.01) * vertices[i];
+		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		for (int i = 0; i < 24; i++)
+		{
+			vertices[i] = matrix.scale(0.99) * vertices[i];
+		}
+	}
 
 	cout << "Update up" << endl;
 }
@@ -85,9 +147,9 @@ void Game::render()
 	glVertexPointer(3, GL_FLOAT, 0, &vertices);
 	glColorPointer(3, GL_FLOAT, 0, &colors);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	//glDrawArrays(GL_TRIANGLES, 0, 36);
 
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, &vertex_index);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, &vertex_index);
 
 	glDisableClientState(GL_COLOR_ARRAY);
 	glDisableClientState(GL_VERTEX_ARRAY);

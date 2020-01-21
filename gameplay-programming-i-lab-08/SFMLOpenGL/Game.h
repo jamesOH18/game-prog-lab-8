@@ -29,4 +29,6 @@ private:
 	Time elapsed;
 
 	float rotationAngle = 0.0f;
+	gpp::MyMatrix3 matrix;
+	
 };
