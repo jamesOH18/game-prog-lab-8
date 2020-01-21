@@ -5,7 +5,7 @@
 #include <gl/GLU.h>
 
 #include <Vector3.h>
-#include <Matrix3.h>
+#include <matrix.h>
 
 using namespace std;
 using namespace sf;
